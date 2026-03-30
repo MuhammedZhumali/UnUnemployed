@@ -1,5 +1,5 @@
 package org.hire.job_platform_service.domain.model;
-l
+
 import jakarta.persistence.*;
 
 @Table(name = "auth")
