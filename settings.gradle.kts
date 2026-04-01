@@ -12,3 +12,5 @@ plugins {
 
 rootProject.name = "UnUnemoloyed"
 include("app")
+include("auth_service")
+include("job_platform_service")
