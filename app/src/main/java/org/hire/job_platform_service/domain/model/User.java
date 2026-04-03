@@ -1,6 +1,7 @@
 package org.hire.job_platform_service.domain.model;
 
 import lombok.*;
+import java.util.List;
 import jakarta.persistence.*;
 
 @Table(name = "users")
@@ -20,4 +21,10 @@ public class User{
 
     @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Job> myVacantJobs;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<JobApplications> jobApplications;
 }
