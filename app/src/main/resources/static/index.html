@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hire Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 text-slate-800">
+  <main class="max-w-5xl mx-auto p-6 space-y-4">
+    <h1 class="text-3xl font-bold">Hire Platform</h1>
+    <p class="text-slate-600">Simple frontend for auth, users, jobs, and applications.</p>
+
+    <section class="bg-white border border-slate-200 rounded-lg p-4 space-y-3">
+      <h2 class="text-xl font-semibold">Auth</h2>
+      <form id="signup-form" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <label class="flex flex-col gap-1 text-sm">Name <input class="border border-slate-300 rounded px-3 py-2" type="text" name="name" required /></label>
+        <label class="flex flex-col gap-1 text-sm">Email <input class="border border-slate-300 rounded px-3 py-2" type="email" name="email" required /></label>
+        <label class="flex flex-col gap-1 text-sm md:col-span-2">Password <input class="border border-slate-300 rounded px-3 py-2" type="password" name="password" required /></label>
+        <button class="bg-blue-600 text-white rounded px-3 py-2 hover:bg-blue-700 md:col-span-2" type="submit">Sign Up (Create User + Register Auth)</button>
+      </form>
+      <form id="login-form" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <label class="flex flex-col gap-1 text-sm">User ID <input class="border border-slate-300 rounded px-3 py-2" type="number" name="userId" required /></label>
+        <label class="flex flex-col gap-1 text-sm">Password <input class="border border-slate-300 rounded px-3 py-2" type="password" name="password" required /></label>
+        <button class="bg-blue-600 text-white rounded px-3 py-2 hover:bg-blue-700 md:col-span-2" type="submit">Login</button>
+      </form>
+    </section>
+
+    <section class="bg-white border border-slate-200 rounded-lg p-4 space-y-3">
+      <h2 class="text-xl font-semibold">Users</h2>
+      <form id="create-user-form" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <label class="flex flex-col gap-1 text-sm">Name <input class="border border-slate-300 rounded px-3 py-2" type="text" name="name" required /></label>
+        <label class="flex flex-col gap-1 text-sm">Email <input class="border border-slate-300 rounded px-3 py-2" type="email" name="email" required /></label>
+        <button class="bg-blue-600 text-white rounded px-3 py-2 hover:bg-blue-700 md:col-span-2" type="submit">Create User</button>
+      </form>
+      <div>
+        <button class="bg-blue-600 text-white rounded px-3 py-2 hover:bg-blue-700" id="load-users-btn">Load All Users</button>
+      </div>
+      <pre id="users-output" class="m-0 whitespace-pre-wrap break-words bg-slate-900 text-blue-100 rounded p-3 min-h-12"></pre>
+    </section>
+
+    <section class="bg-white border border-slate-200 rounded-lg p-4 space-y-3">
+      <h2 class="text-xl font-semibold">Jobs</h2>
+      <form id="create-job-form" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <label class="flex flex-col gap-1 text-sm">Title <input class="border border-slate-300 rounded px-3 py-2" type="text" name="title" required /></label>
+        <label class="flex flex-col gap-1 text-sm">Description <input class="border border-slate-300 rounded px-3 py-2" type="text" name="description" required /></label>
+        <label class="flex flex-col gap-1 text-sm">Owner User ID <input class="border border-slate-300 rounded px-3 py-2" type="number" name="userId" required /></label>
+        <label class="flex flex-col gap-1 text-sm">Company <input class="border border-slate-300 rounded px-3 py-2" type="text" name="company" required /></label>
+        <label class="flex flex-col gap-1 text-sm">Location <input class="border border-slate-300 rounded px-3 py-2" type="text" name="location" required /></label>
+        <label class="flex flex-col gap-1 text-sm">Salary <input class="border border-slate-300 rounded px-3 py-2" type="number" name="salary" step="0.01" required /></label>
+        <button class="bg-blue-600 text-white rounded px-3 py-2 hover:bg-blue-700 md:col-span-2" type="submit">Create Job</button>
+      </form>
+      <div>
+        <button class="bg-blue-600 text-white rounded px-3 py-2 hover:bg-blue-700" id="load-jobs-btn">Load All Jobs</button>
+      </div>
+      <pre id="jobs-output" class="m-0 whitespace-pre-wrap break-words bg-slate-900 text-blue-100 rounded p-3 min-h-12"></pre>
+    </section>
+
+    <section class="bg-white border border-slate-200 rounded-lg p-4 space-y-3">
+      <h2 class="text-xl font-semibold">Applications</h2>
+      <form id="apply-job-form" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <label class="flex flex-col gap-1 text-sm">User ID <input class="border border-slate-300 rounded px-3 py-2" type="number" name="userId" required /></label>
+        <label class="flex flex-col gap-1 text-sm">Job ID <input class="border border-slate-300 rounded px-3 py-2" type="number" name="jobId" required /></label>
+        <button class="bg-blue-600 text-white rounded px-3 py-2 hover:bg-blue-700 md:col-span-2" type="submit">Apply for Job</button>
+      </form>
+
+      <form id="user-applications-form" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <label class="flex flex-col gap-1 text-sm">User ID <input class="border border-slate-300 rounded px-3 py-2" type="number" name="userId" required /></label>
+        <button class="bg-blue-600 text-white rounded px-3 py-2 hover:bg-blue-700" type="submit">Load User Applications</button>
+      </form>
+      <pre id="applications-output" class="m-0 whitespace-pre-wrap break-words bg-slate-900 text-blue-100 rounded p-3 min-h-12"></pre>
+    </section>
+
+    <section class="bg-white border border-slate-200 rounded-lg p-4 space-y-3">
+      <h2 class="text-xl font-semibold">Status</h2>
+      <pre id="status-output" class="m-0 whitespace-pre-wrap break-words bg-slate-900 text-blue-100 rounded p-3 min-h-12"></pre>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

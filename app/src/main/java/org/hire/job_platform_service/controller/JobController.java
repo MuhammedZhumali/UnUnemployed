@@ -3,8 +3,8 @@ package org.hire.job_platform_service.controller;
 import org.hire.job_platform_service.service.JobService;
 import org.hire.job_platform_service.dto.JobDto;
 import org.hire.job_platform_service.domain.model.Job;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import java.util.List;
 
@@ -34,6 +34,7 @@ public class JobController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @PreAuthorize("hasAnyAuthority('EMPLOYER')")
     public void deleteById(@PathVariable Long id){
         jobService.deleteJob(id);
     }

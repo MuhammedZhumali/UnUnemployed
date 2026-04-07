@@ -11,6 +11,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("de.mkammerer:argon2-jvm:2.11")
 
     runtimeOnly("org.postgresql:postgresql")
