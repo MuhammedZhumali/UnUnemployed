@@ -19,9 +19,6 @@ public class User{
     @Column(name = "email")
     private String email;
 
-    @Column(name = "password")
-    private String password;
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Job> myVacantJobs;
 

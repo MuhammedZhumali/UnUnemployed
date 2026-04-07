@@ -10,4 +10,8 @@ public class PasswordHasher {
     public static String hashPassword(String password){
         return argon2.hash(2, 12 * 1024, 1, password.toCharArray());
     }
+
+    public static boolean verifyPassword(String password, String hash) {
+        return argon2.verify(hash, password.toCharArray());
+    }
 }
