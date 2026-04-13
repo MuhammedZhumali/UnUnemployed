@@ -3,6 +3,8 @@ package org.hire.auth_service.controller;
 import org.springframework.web.bind.annotation.*;
 import org.hire.auth_service.service.AuthService;
 
+import java.util.Map;
+
 
 @RestController
 @RequestMapping("/auth")
@@ -20,7 +22,8 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public void login(@RequestParam Long userId, @RequestParam String password){
-        authService.login(userId, password);
+    public Map<String, String> login(@RequestParam Long userId, @RequestParam String password){
+        String token = authService.login(userId, password);
+        return Map.of("accessToken", token);
     }
 }
